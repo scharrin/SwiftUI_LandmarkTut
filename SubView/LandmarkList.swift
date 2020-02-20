@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// start page: list from rows and set position and touch actions
 struct LandmarkList: View {
 //    @State var showFabritOnly = true
     @EnvironmentObject var usrData: UserData
@@ -20,17 +21,21 @@ struct LandmarkList: View {
 //                    LandmarkRow(lanmark: lm)
 //                }
 //            }
+            
             List {
                 Toggle(isOn: $usrData.showFavOnly) {
+                    /// modified alignment
                     HStack {
                         Spacer()
                         Text("Fav only")
                     }
                     
                 }
+                    /// added tap guesture
                 .gesture(TapGesture().onEnded { _ in self.usrData.showFavOnly = !self.usrData.showFavOnly
                 })
                 
+                /// call rows
                 ForEach( usrData.lndmrk /*landmarks*/) { lm in
                     if !self.usrData.showFavOnly || lm.isFavorite {
                         NavigationLink(destination: LandmarkDetail(lndmrk: lm))
@@ -46,6 +51,7 @@ struct LandmarkList: View {
     }
 }
 
+/// inputs for preview
 struct LandmarkList_Previews: PreviewProvider {
     static var previews: some View {
 //        LandmarkList()

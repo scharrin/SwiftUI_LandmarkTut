@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// item detail page from list.
 struct LandmarkDetail: View {
     @EnvironmentObject var usrData : UserData
     var lndmrk: Landmark
@@ -58,6 +59,7 @@ struct LandmarkDetail: View {
     }
 }
 
+/// inputs for preview
 struct LandmarkDetail_Previews: PreviewProvider {
     static var previews: some View {
         LandmarkDetail(lndmrk: landmarks[0])

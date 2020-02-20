@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 
+/// temporarily saving user inputs ( just favorit or not for now )
 final class UserData: ObservableObject {
     @Published var showFavOnly = false
     @Published var lndmrk = landmarks

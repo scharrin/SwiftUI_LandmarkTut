@@ -9,6 +9,7 @@
 import SwiftUI
 import MapKit
 
+/// partial map view
 struct MapV: UIViewRepresentable {
     var crdn: CLLocationCoordinate2D
     
@@ -25,6 +26,7 @@ struct MapV: UIViewRepresentable {
     }
 }
 
+/// inputs for preview
 struct MapV_Previews: PreviewProvider {
     static var previews: some View {
         MapV(crdn: landmarks[0].locationCoordinate)

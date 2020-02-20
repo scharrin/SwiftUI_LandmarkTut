@@ -9,9 +9,14 @@
 import SwiftUI
 import UIKit
 import CoreLocation
+import Foundation
 
+/// data treating
 let landmarks: [Landmark] = load("landmarkData.json")
+let hikeData: [Hike] = load("hikeData.json")
 
+/// load file and decode
+/// - Parameter filename: _
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
@@ -31,6 +36,7 @@ func load<T: Decodable>(_ filename: String) -> T {
     }
 }
 
+/// image treating
 final class ImgAlbum {
     typealias _ImageDic = [String: CGImage]
     fileprivate var imgs: _ImageDic = [:]
