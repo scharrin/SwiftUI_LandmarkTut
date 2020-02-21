@@ -34,7 +34,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             //            window.rootViewController = UIHostingController(rootView: contentView)
             window.rootViewController = UIHostingController(rootView:
 //                LandmarkList().environmentObject(UserData())
-                HikeView(hike: hikeData[0])
+//                HikeView(hike: hikeData[0])
+                CategoryHome().environmentObject(UserData())
             )
             self.window = window
             window.makeKeyAndVisible()

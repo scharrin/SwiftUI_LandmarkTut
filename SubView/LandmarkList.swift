@@ -14,7 +14,7 @@ struct LandmarkList: View {
     @EnvironmentObject var usrData: UserData
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             
 //            List (landmarks) { lm in
 //                NavigationLink(destination: LandmarkDetail(lndmrk: lm)) {
@@ -31,8 +31,10 @@ struct LandmarkList: View {
                     }
                     
                 }
-                    /// added tap guesture
-                .gesture(TapGesture().onEnded { _ in self.usrData.showFavOnly = !self.usrData.showFavOnly
+                    /// add tap guesture
+                .gesture(
+                    TapGesture()
+                        .onEnded { _ in self.usrData.showFavOnly = !self.usrData.showFavOnly
                 })
                 
                 /// call rows
@@ -47,7 +49,7 @@ struct LandmarkList: View {
                 }
             }
             .navigationBarTitle(Text("lanmarksss"), displayMode: .inline)
-        }
+//        }
     }
 }
 
@@ -62,7 +64,8 @@ struct LandmarkList_Previews: PreviewProvider {
 //            .previewDevice(PreviewDevice(rawValue: devcName))
 //            .previewDisplayName(devcName)
 //        }
-        
-        LandmarkList().environmentObject(UserData())
+        NavigationView {
+            LandmarkList().environmentObject(UserData())
+        }
     }
 }
