@@ -13,4 +13,5 @@ import Combine
 final class UserData: ObservableObject {
     @Published var showFavOnly = false
     @Published var lndmrk = landmarks
+    @Published var prfl = Profile.default
 }
