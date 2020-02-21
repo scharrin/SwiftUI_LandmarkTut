@@ -37,7 +37,7 @@ struct userPflHost: View {
                     self.usrData.prfl = self.draftPrfl
                 }
             }
-            PrflSummary(profile: draftPrfl)
+//            PrflSummary(profile: draftPrfl)
         }
         .padding()
 //        Text("profile for: \(draftPrfl.name)")
