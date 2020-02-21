@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// circle-cut and frame image
 struct CircledImg: View {
     var img : Image
     var body: some View {
@@ -18,6 +19,7 @@ struct CircledImg: View {
     }
 }
 
+/// inputs for preview
 struct CircledImg_Previews: PreviewProvider {
     static var previews: some View {
         CircledImg(img: Image("turtlerock"))
