@@ -16,6 +16,12 @@ struct userPflHost: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             HStack {
+                if self.mod?.wrappedValue == .active {
+                    Button("Cancel") {
+                        self.draftPrfl = self.usrData.prfl
+                        self.mod?.animation().wrappedValue = .inactive
+                    }
+                }
                 Spacer()
                 EditButton()
             }
@@ -24,6 +30,12 @@ struct userPflHost: View {
             } else {
 //                Text("profile editor")
                 PrflEdtr(prf: $draftPrfl)
+                    .onAppear {
+                        self.draftPrfl = self.usrData.prfl
+                }
+                .onDisappear {
+                    self.usrData.prfl = self.draftPrfl
+                }
             }
             PrflSummary(profile: draftPrfl)
         }
