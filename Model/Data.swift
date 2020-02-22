@@ -43,24 +43,22 @@ final class ImgAlbum {
     fileprivate static var scale = 2
     static var shared = ImgAlbum()
     
-    func img(name: String) -> Image {
+    func img(name: String) -> Image? {
         let idx = _validateImg(name: name)
-        
-        return Image(imgs.values[idx], scale: CGFloat(ImgAlbum.scale), label: Text(name))
+        if idx != nil {
+        return Image(imgs.values[idx!], scale: CGFloat(ImgAlbum.scale), label: Text(name))
+        } else { return nil }
     }
-    static func loadImg(name: String) -> CGImage {
-        guard let url = Bundle.main.url(forResource: name, withExtension: "jpg")
+    static func loadImg(name: String) -> CGImage? {
+        if let url = Bundle.main.url(forResource: name, withExtension: "jpg")
             , let imgSrc = CGImageSourceCreateWithURL(url as NSURL, nil)
             , let img = CGImageSourceCreateImageAtIndex(imgSrc, 0, nil)
-        else {
-            fatalError("Couldn't load image \(name).jpg from main bundle.")
-        }
-        return img
+        { return img} else {return nil}
     }
     
-    fileprivate func _validateImg(name: String) -> _ImageDic.Index {
+    fileprivate func _validateImg(name: String) -> _ImageDic.Index? {
         if let idx = imgs.index(forKey: name) { return idx }
         imgs[name] = ImgAlbum.loadImg(name: name)
-        return imgs.index(forKey: name)!
+        return imgs.index(forKey: name)
     }
 }

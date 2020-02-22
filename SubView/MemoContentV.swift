@@ -1,5 +1,5 @@
 //
-//  LandmarkDetail.swift
+//  MemoContentV.swift
 //  LandmarkTut
 //
 //  Created by macproo on 2020/02/20.
@@ -19,13 +19,17 @@ struct MemoContentV: View {
     
     var body: some View {
         VStack{
-            MapV(crdn: memo.locationCoordinate)
-                .edgesIgnoringSafeArea(.top)
-                .frame(height: 300)
-            CircledImg(img: memo.image)
-                .offset(y:-130)
-                .padding(.bottom, -130)
-            VStack (alignment: .leading){
+//            MapV(crdn: memo.locationCoordinate)
+//                .edgesIgnoringSafeArea(.top)
+//                .frame(height: 300)
+//            Group {
+//                if memo.image != nil {
+//                CircledImg(img: memo.image!)
+//                .offset(y:-130)
+//                .padding(.bottom, -130)
+//            }
+//            }
+            VStack (alignment: .leading) {
                 HStack {
                     Text(memo.name)
                         .font(.title)
@@ -40,14 +44,16 @@ struct MemoContentV: View {
                                 .foregroundColor(.gray)
                         }
                     }
-                }
-                HStack (alignment: .top){
-                    Text(memo.park)
-                        .font(.subheadline)
                     Spacer()
-                    Text(memo.state)
-                        .font(.subheadline)
                 }
+//                HStack (alignment: .top) {
+//                    Text(memo.park)
+//                        .font(.subheadline)
+//                    Spacer()
+//                    Text(memo.state)
+//                        .font(.subheadline)
+                    
+//                }
             }
             .padding()
             Spacer()

@@ -51,11 +51,13 @@ struct CategoryItem : View {
     var memo:Memo
     var body: some View {
         VStack (alignment: .leading) {
-            memo.image
+            if memo.image != nil {
+                memo.image!
                 .renderingMode(.original)
                 .resizable()
                 .frame(width: 155, height: 155)
                 .cornerRadius(5)
+            }
             Text(memo.name)
                 .foregroundColor(.primary)
                 .font(.caption)

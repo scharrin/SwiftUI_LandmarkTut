@@ -13,9 +13,11 @@ struct MemoRow: View {
     var memo: Memo
     var body: some View {
         HStack {
-            memo.image
+            if memo.image != nil {
+                memo.image!
                 .resizable()
                 .frame(width: 50, height: 50)
+            }
             Text(memo.name)
             Spacer()
             if memo.isFavorite {
