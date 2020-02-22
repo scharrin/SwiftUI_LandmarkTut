@@ -2,9 +2,9 @@ import UIKit
 import SwiftUI
 
 struct ThmColr {
-    static let grayDark1 = UIColor(red: 55, green: 50, blue: 47, alpha: 1)
-    static let grayDark2 = UIColor(red: 74, green: 70, blue: 67, alpha: 1)
-    static let brown1  = UIColor(red: 101, green: 60, blue: 38, alpha: 1)
+    static let grayDark1 = UIColor(red: 55/255, green: 50/255, blue: 47/255, alpha: 1)
+    static let grayDark2 = UIColor(red: 74/255, green: 70/255, blue: 67/255, alpha: 1)
+    static let brown1  = UIColor(red: 101/255, green: 60/255, blue: 38/255, alpha: 1)
 }
 
 struct Dims {

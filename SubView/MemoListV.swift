@@ -1,5 +1,5 @@
 //
-//  LandmarkList.swift
+//  MemoListV.swift
 //  LandmarkTut
 //
 //  Created by macproo on 2020/02/20.
@@ -8,9 +8,7 @@
 
 import SwiftUI
 
-/// start page: list from rows and set position and touch actions
 struct MemoListV: View {
-//    @State var showFabritOnly = true
     @EnvironmentObject var usrData: UserData
     
     var body: some View {
@@ -24,7 +22,8 @@ struct MemoListV: View {
                 }
                 .gesture(
                     TapGesture()
-                        .onEnded { _ in self.usrData.showFavOnly = !self.usrData.showFavOnly
+                        .onEnded {
+                            _ in self.usrData.showFavOnly = !self.usrData.showFavOnly
                 })
                 ForEach ( usrData.memosUD ) { m in
                     if !self.usrData.showFavOnly || m.isFavorite {
@@ -40,10 +39,9 @@ struct MemoListV: View {
     }
 }
 
-/// inputs for preview
-struct MemoListV_Previews: PreviewProvider {
-    static var previews: some View {
-            MemoListV().environmentObject(UserData())
-//        }
-    }
-}
+///// inputs for preview
+//struct MemoListV_Previews: PreviewProvider {
+//    static var previews: some View {
+//            MemoListV().environmentObject(UserData())
+//    }
+//}

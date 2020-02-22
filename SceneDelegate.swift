@@ -33,11 +33,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // changed start page
             //            window.rootViewController = UIHostingController(rootView: contentView)
             window.rootViewController = UIHostingController(rootView:
-//                LandmarkList().environmentObject(UserData())
+                MemoListV().environmentObject(UserData())
 //                HikeView(hike: hikeData[0])
 //                CategoryHome().environmentObject(UserData())
-                PageV( features.map { FeatureCard(landmark: $0) })
-                    .aspectRatio(3/2, contentMode: .fit)
+//                PageV( features.map { FeatureCard(memo: $0) })
+//                    .aspectRatio(3/2, contentMode: .fit)
             )
             self.window = window
             window.makeKeyAndVisible()

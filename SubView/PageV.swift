@@ -43,10 +43,10 @@ struct PageV<Page: View>: View {
         }
     }
 }
-
-struct PageV_Previews: PreviewProvider {
-    static var previews: some View {
-        PageV( features.map { FeatureCard(landmark: $0) })
-            .aspectRatio(3/2, contentMode: .fit)
-    }
-}
+//
+//struct PageV_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PageV( features.map { FeatureCard(memo: $0) })
+//            .aspectRatio(3/2, contentMode: .fit)
+//    }
+//}
