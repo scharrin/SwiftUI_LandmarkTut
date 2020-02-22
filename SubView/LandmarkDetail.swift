@@ -31,7 +31,8 @@ struct LandmarkDetail: View {
                 HStack {
                     Text(lndmrk.name)
                         .font(.title)
-                    Button(action: {                        self.usrData.lndmrk[self.lndmrkIdx].isFavorite.toggle()
+                    Button(action: {
+                        self.usrData.lndmrk[self.lndmrkIdx].isFavorite.toggle()
                     }) {
                         if self.usrData.lndmrk[self.lndmrkIdx].isFavorite {
                             Image(systemName: "star.fill")

@@ -19,6 +19,14 @@ struct Landmark : Hashable, Codable, Identifiable {
     var category: Category
     var isFavorite: Bool
     var isFeatured: Bool
+    var featureImage: Image? {
+        guard isFeatured else { return nil }
+        return Image(
+            ImgAlbum.loadImg(name: "\(imageName)_feature")
+            , scale: 2
+            , label: Text(name)
+        )
+    }
     var locationCoordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
     }
