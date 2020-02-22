@@ -10,14 +10,14 @@ import SwiftUI
 
 struct CategoryHome: View {
     @EnvironmentObject var usrData : UserData
-    var categories: [String: [Landmark]] {
+    var categories: [String: [Memo]] {
         Dictionary(
-            grouping: landmarks, by: {$0.category.rawValue}
+            grouping: memos, by: {$0.category.rawValue}
         )
     }
     
-    var featured: [Landmark] {
-        landmarks.filter{$0.isFeatured}
+    var featured: [Memo] {
+        memos.filter{$0.isFeatured}
     }
     
     @State var showProfile = false
@@ -47,7 +47,7 @@ struct CategoryHome: View {
                 .listRowInsets(EdgeInsets())
                 
                 NavigationLink(destination:
-                    LandmarkList().environmentObject(self.usrData)
+                    MemoListV().environmentObject(self.usrData)
 //                        .environmentObject(UserData())
                 ) {
                     Text("see all")
@@ -71,7 +71,7 @@ struct CategoryHome_Previews: PreviewProvider {
 }
 
 struct FeaturedLandmarks: View {
-    var lnmks : [Landmark]
+    var lnmks : [Memo]
     var body: some View {
         lnmks[0].image.resizable()
     }

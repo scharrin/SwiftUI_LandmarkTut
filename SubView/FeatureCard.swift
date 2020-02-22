@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct FeatureCard: View {
-    var landmark: Landmark
+    var landmark: Memo
     
     var body: some View {
         landmark.featureImage?
@@ -20,7 +20,7 @@ struct FeatureCard: View {
 }
 
 struct TextOverlay: View {
-    var landmark: Landmark
+    var landmark: Memo
     
     var gradient: LinearGradient {
         LinearGradient(

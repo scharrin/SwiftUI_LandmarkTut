@@ -11,7 +11,7 @@ import SwiftUI
 struct CategoryRow: View {
     @EnvironmentObject var usrData : UserData
     var categoryName : String
-    var items :[Landmark]
+    var items :[Memo]
     var body: some View {
         VStack (alignment: .leading){
             Text(self.categoryName)
@@ -21,13 +21,12 @@ struct CategoryRow: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack (alignment: .top){
-                    ForEach(self.items) { lm in
-//                        Text(lm.name)
+                    ForEach(self.items) { m in
                         NavigationLink(
                             destination:
-                            LandmarkDetail(lndmrk: lm).environmentObject(self.usrData)
+                            MemoContentV(memo: m).environmentObject(self.usrData)
                         ){
-                            CategoryItem(lnmrk: lm)
+                            CategoryItem(memo: m)
                         }
                         
                     }
@@ -42,22 +41,22 @@ struct CategoryRow: View {
 struct CategoryRow_Previews: PreviewProvider {
     static var previews: some View {
         CategoryRow(
-            categoryName: landmarks[0].category.rawValue
-            , items: Array(landmarks.prefix(4))
+            categoryName: memos[0].category.rawValue
+            , items: Array(memos.prefix(4))
         )
     }
 }
 
 struct CategoryItem : View {
-    var lnmrk:Landmark
+    var memo:Memo
     var body: some View {
         VStack (alignment: .leading) {
-            lnmrk.image
+            memo.image
                 .renderingMode(.original)
                 .resizable()
                 .frame(width: 155, height: 155)
                 .cornerRadius(5)
-            Text(lnmrk.name)
+            Text(memo.name)
                 .foregroundColor(.primary)
                 .font(.caption)
         }
