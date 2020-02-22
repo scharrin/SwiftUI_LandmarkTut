@@ -29,6 +29,6 @@ struct MapV: UIViewRepresentable {
 /// inputs for preview
 struct MapV_Previews: PreviewProvider {
     static var previews: some View {
-        MapV(crdn: landmarks[0].locationCoordinate)
+        MapV(crdn: memos[0].locationCoordinate)
     }
 }

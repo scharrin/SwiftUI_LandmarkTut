@@ -1,5 +1,5 @@
 //
-//  LandmarkRow.swift
+//  MemoRow.swift
 //  LandmarkTut
 //
 //  Created by macproo on 2020/02/20.
@@ -9,16 +9,16 @@
 import SwiftUI
 
 /// data row for list
-struct LandmarkRow: View {
-    var lanmark: Landmark
+struct MemoRow: View {
+    var memo: Memo
     var body: some View {
         HStack {
-            lanmark.image
+            memo.image
                 .resizable()
                 .frame(width: 50, height: 50)
-            Text(lanmark.name)
+            Text(memo.name)
             Spacer()
-            if lanmark.isFavorite {
+            if memo.isFavorite {
                 Image(systemName: "star.fill")
                     .imageScale(.medium)
                     .foregroundColor(.yellow)
@@ -31,10 +31,10 @@ struct LandmarkRow: View {
 struct LandmarkRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LandmarkRow(lanmark: landmarks[0])
-            LandmarkRow(lanmark: landmarks[1])
-            LandmarkRow(lanmark: landmarks[2])
-            LandmarkRow(lanmark: landmarks[3])
+            MemoRow(memo: memos[0])
+            MemoRow(memo: memos[1])
+            MemoRow(memo: memos[2])
+            MemoRow(memo: memos[3])
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }

@@ -11,8 +11,8 @@ import CoreLocation
 import Foundation
 
 /// data treating
-let landmarks: [Landmark] = load("landmarkData.json")
-let features = landmarks.filter { $0.isFeatured }
+let memos: [Memo] = load("landmarkData.json")
+let features = memos.filter { $0.isFeatured }
 let hikeData: [Hike] = load("hikeData.json")
 
 /// load file and decode

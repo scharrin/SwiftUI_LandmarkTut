@@ -9,32 +9,30 @@
 import SwiftUI
 
 /// item detail page from list.
-struct LandmarkDetail: View {
+struct MemoContentV: View {
     @EnvironmentObject var usrData : UserData
-    var lndmrk: Landmark
+    var memo: Memo
     
-    var lndmrkIdx: Int {
-        usrData.lndmrk.firstIndex(where: { $0.id == lndmrk.id})!
+    var memoIdx: Int {
+        usrData.memosUD.firstIndex(where: { $0.id == memo.id})!
     }
     
     var body: some View {
         VStack{
-            MapV(crdn: lndmrk.locationCoordinate)
+            MapV(crdn: memo.locationCoordinate)
                 .edgesIgnoringSafeArea(.top)
                 .frame(height: 300)
-            CircledImg(img: lndmrk.image)
+            CircledImg(img: memo.image)
                 .offset(y:-130)
                 .padding(.bottom, -130)
             VStack (alignment: .leading){
-                
-//                Text("bo")
                 HStack {
-                    Text(lndmrk.name)
+                    Text(memo.name)
                         .font(.title)
                     Button(action: {
-                        self.usrData.lndmrk[self.lndmrkIdx].isFavorite.toggle()
+                        self.usrData.memosUD[self.memoIdx].isFavorite.toggle()
                     }) {
-                        if self.usrData.lndmrk[self.lndmrkIdx].isFavorite {
+                        if self.usrData.memosUD[self.memoIdx].isFavorite {
                             Image(systemName: "star.fill")
                                 .foregroundColor(.yellow)
                         } else {
@@ -44,26 +42,24 @@ struct LandmarkDetail: View {
                     }
                 }
                 HStack (alignment: .top){
-//                    Text("bbb")
-                    Text(lndmrk.park)
+                    Text(memo.park)
                         .font(.subheadline)
                     Spacer()
-//                    Text("bbbbb")
-                    Text(lndmrk.state)
+                    Text(memo.state)
                         .font(.subheadline)
                 }
             }
             .padding()
             Spacer()
         }
-        .navigationBarTitle(Text(lndmrk.name), displayMode: .inline)
+        .navigationBarTitle(Text(memo.name), displayMode: .inline)
     }
 }
 
 /// inputs for preview
-struct LandmarkDetail_Previews: PreviewProvider {
+struct MemoContentV_Previews: PreviewProvider {
     static var previews: some View {
-        LandmarkDetail(lndmrk: landmarks[0])
+        MemoContentV(memo: memos[0])
         .environmentObject(UserData())
     }
 }

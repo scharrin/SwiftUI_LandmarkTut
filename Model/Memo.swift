@@ -1,5 +1,5 @@
 //
-//  Landmark.swift
+//  Memo.swift
 //  LandmarkTut
 //
 //  Created by macproo on 2020/02/20.
@@ -9,7 +9,7 @@
 import SwiftUI
 import CoreLocation
 
-struct Landmark : Hashable, Codable, Identifiable {
+struct Memo : Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     fileprivate var imageName: String
@@ -38,7 +38,7 @@ struct Landmark : Hashable, Codable, Identifiable {
     }
 }
 
-extension Landmark {
+extension Memo {
     var image: Image {
         ImgAlbum.shared.img(name: imageName)
     }
