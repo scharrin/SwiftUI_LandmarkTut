@@ -35,9 +35,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = UIHostingController(rootView:
 //                LandmarkList().environmentObject(UserData())
 //                HikeView(hike: hikeData[0])
-                CategoryHome().environmentObject(UserData())
-//                PageV( features.map { FeatureCard(landmark: $0) })
-//                    .aspectRatio(3/2, contentMode: .fit)
+//                CategoryHome().environmentObject(UserData())
+                PageV( features.map { FeatureCard(landmark: $0) })
+                    .aspectRatio(3/2, contentMode: .fit)
             )
             self.window = window
             window.makeKeyAndVisible()
