@@ -33,6 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // changed start page
             //            window.rootViewController = UIHostingController(rootView: contentView)
             window.rootViewController = UIHostingController(rootView:
+//                ListTestV(tmpMemo: "")
                 MemoListV().environmentObject(UserData())
 //                HikeView(hike: hikeData[0])
 //                CategoryHome().environmentObject(UserData())

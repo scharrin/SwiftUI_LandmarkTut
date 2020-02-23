@@ -11,6 +11,10 @@ import SwiftUI
 /// item detail page from list.
 struct MemoContentV: View {
     @EnvironmentObject var usrData : UserData
+//    @Environment(\.editMode) var edtMod
+    @State var editing: Bool = false
+    @State var tmpMemo: String = ""
+    
     var memo: Memo
     
     var memoIdx: Int {
@@ -29,10 +33,12 @@ struct MemoContentV: View {
 //                .padding(.bottom, -130)
 //            }
 //            }
-            VStack (alignment: .leading) {
+            VStack {
                 HStack {
-                    Text(memo.name)
-                        .font(.title)
+//                    Text(memo.name)
+//                        .font(.title)
+                    Spacer()
+
                     Button(action: {
                         self.usrData.memosUD[self.memoIdx].isFavorite.toggle()
                     }) {
@@ -44,24 +50,16 @@ struct MemoContentV: View {
                                 .foregroundColor(.gray)
                         }
                     }
-                    Spacer()
                 }
-//                HStack (alignment: .top) {
-//                    Text(memo.park)
-//                        .font(.subheadline)
-//                    Spacer()
-//                    Text(memo.state)
-//                        .font(.subheadline)
-                    
-//                }
+                    MultilineTxtV(txt: $tmpMemo)
             }
             .padding()
-            Spacer()
         }
         .navigationBarTitle(Text(memo.name), displayMode: .inline)
     }
 }
 
+#if DEBUG
 /// inputs for preview
 struct MemoContentV_Previews: PreviewProvider {
     static var previews: some View {
@@ -69,3 +67,5 @@ struct MemoContentV_Previews: PreviewProvider {
         .environmentObject(UserData())
     }
 }
+
+#endif /// DEBUG END
