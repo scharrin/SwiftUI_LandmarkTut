@@ -25,6 +25,13 @@ struct MemoListV: View {
                         .onEnded {
                             _ in self.usrData.showFavOnly = !self.usrData.showFavOnly
                 })
+//                Button("compose"){
+//                    NavigationLink(destination: MemoContentV(memo: usrData.memosUD) {
+//                        Image(systemName: "compose.large")
+//                    }
+//                }) {
+//                    Image(systemName: "compose.large")
+//                }
                 ForEach ( usrData.memosUD ) { m in
                     if !self.usrData.showFavOnly || m.isFavorite {
                         NavigationLink(destination: MemoContentV(memo: m)) {
