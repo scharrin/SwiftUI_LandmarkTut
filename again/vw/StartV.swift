@@ -15,17 +15,18 @@ struct StartV: View {
     @State private var memoExpanded: Bool = false
 //    @Environment(\EditMode) var editMod
     let newTextFrameHeight: CGFloat = 100
-    let listTextFrameHeight: CGFloat = 50
+    let listTextFrameHeight: CGFloat = 100
     let listTextFrameWidth: CGFloat = 404
     let listTextFrameSpacing: CGFloat = 5
     let rowCornerRadius: CGFloat = 10
     let listPadding: CGFloat = 5
     let listTextPadding: CGFloat = 5
     let longPressGesTime: Double = 2.0
-
+    private let MainBGColor = Color(hue:180/360, saturation:0/100, brightness:90/100)
+    
     var body: some View {
         ZStack {
-            Color.gray
+                MainBGColor
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 txtVw(text: $newText)
@@ -37,17 +38,17 @@ struct StartV: View {
                             Button(action: { self.memoExpanded.toggle() }) {
                                 if self.memoExpanded {
                                     /// when tapped a memo
-                                    MemoDetailV(_memo: "fffff")
+                                    MemoDetailV(_memo: .constant("12345678901234567890"))
                                 } else {
                                     /// memo preview before tap
                                     memoListRowV()
                                 /// shapes
                                 }
                             }
-                            .onLongPressGesture(
-                                minimumDuration: self.longPressGesTime
-                                , perform: self.rwMov
-                            )
+//                            .onLongPressGesture(
+//                                minimumDuration: self.longPressGesTime
+//                                , perform: self.rwMov
+//                            )
                             .padding(self.listTextPadding)
                             .frame(
                                 width: self.listTextFrameWidth

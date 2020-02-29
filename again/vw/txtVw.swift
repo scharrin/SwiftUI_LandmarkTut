@@ -68,3 +68,18 @@ struct txtVw: UIViewRepresentable {
         
     }
 }
+
+//struct ListTestV2: View {
+//    var body: some View {
+//        txtVw("ddddddd")
+//    }
+//}
+//
+//
+//struct ListTestV2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            ListTestV2()
+//        }
+//    }
+//}
